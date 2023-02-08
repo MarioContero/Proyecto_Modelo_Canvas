@@ -1,0 +1,8 @@
+https://wkhtmltopdf.org/downloads.html
+ADD wkhtmltopdf TO ENVPATH
+REINICIAR
+
+pip install flask
+pip install pdfkit
+
+python main.py

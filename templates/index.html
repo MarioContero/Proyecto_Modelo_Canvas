@@ -1,0 +1,91 @@
+<html>
+
+<head>
+	<title>Maquetador de proyectos</title>
+	<meta charset="UTF-8">
+	<link href="{{ url_for('static', filename='bootstrap.min.css', _external=True) }}" rel="stylesheet" >
+	<style type="text/css">
+		body {
+			min-height: 100vh;
+			padding: 20px;
+			background-color: #e5e5f7;
+			/* opacity: 0.2; */
+			background-image: radial-gradient(#444cf7 1px, #e5e5f7 1px);
+			background-size: 20px 20px;
+		}
+
+		h1 {
+			text-align: center;
+			font-weight: bold;
+		}
+
+		button a {
+			color: white;
+			text-decoration: none;
+		}
+
+		textarea {
+			height: 250px;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="/guardar" method="post" style="display: flex;flex-direction: column;height: 100%;">
+		<h1>Mi Primer Emprendimiento</h1>
+		<div style="margin-top: 75px;margin-bottom: 25px;flex-grow: 1;width: 100%;">
+			<div class="row row-cols-1 row-cols-md-5 g-3">
+				<div class="col">
+					<div class="card" style="min-height: 200px;">
+						<div class="card-header">Proveedores</div>
+						<div class="card-body">
+							<textarea class="form-control" name="proveedores">{{datos[1]}}</textarea>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="min-height: 200px;">
+						<div class="card-header">Clientes</div>
+						<div class="card-body">
+							<textarea class="form-control" name="clientes">{{datos[2]}}</textarea>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="min-height: 200px;">
+						<div class="card-header">Presupuesto</div>
+						<div class="card-body">
+							<textarea class="form-control" name="presupuesto">{{datos[3]}}</textarea>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="min-height: 200px;">
+						<div class="card-header">Publicidad</div>
+						<div class="card-body">
+							<textarea class="form-control" name="publicidad">{{datos[4]}}</textarea>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="min-height: 200px;">
+						<div class="card-header">Activos fijos</div>
+						<div class="card-body">
+							<textarea class="form-control" name="activos">{{datos[5]}}</textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="display: flex;justify-content: space-evenly;padding: 20px;">
+			<input class="btn btn-success" type="submit" value="Guardar">
+			<a class="btn btn-primary" href="/pdf" download>Descargar</a>
+			<a class="btn btn-danger" href="/borrar">Borrar</a>
+			<form action="/logout" method="post">
+				<input class="btn btn-danger" type="submit" value="Cerrar sesión">
+			</form>
+		</div>
+	</form>
+</body>
+
+</html>
