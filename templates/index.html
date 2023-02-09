@@ -39,7 +39,7 @@
 					<div class="card" style="min-height: 200px;">
 						<div class="card-header">Proveedores</div>
 						<div class="card-body">
-							<textarea class="form-control" name="proveedores">{{datos[1]}}</textarea>
+							<textarea class="form-control" name="proveedores">{{datos[2]}}</textarea>
 						</div>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 					<div class="card" style="min-height: 200px;">
 						<div class="card-header">Clientes</div>
 						<div class="card-body">
-							<textarea class="form-control" name="clientes">{{datos[2]}}</textarea>
+							<textarea class="form-control" name="clientes">{{datos[3]}}</textarea>
 						</div>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 					<div class="card" style="min-height: 200px;">
 						<div class="card-header">Presupuesto</div>
 						<div class="card-body">
-							<textarea class="form-control" name="presupuesto">{{datos[3]}}</textarea>
+							<textarea class="form-control" name="presupuesto">{{datos[4]}}</textarea>
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 					<div class="card" style="min-height: 200px;">
 						<div class="card-header">Publicidad</div>
 						<div class="card-body">
-							<textarea class="form-control" name="publicidad">{{datos[4]}}</textarea>
+							<textarea class="form-control" name="publicidad">{{datos[5]}}</textarea>
 						</div>
 					</div>
 				</div>
@@ -71,7 +71,7 @@
 					<div class="card" style="min-height: 200px;">
 						<div class="card-header">Activos fijos</div>
 						<div class="card-body">
-							<textarea class="form-control" name="activos">{{datos[5]}}</textarea>
+							<textarea class="form-control" name="activos">{{datos[6]}}</textarea>
 						</div>
 					</div>
 				</div>
@@ -79,12 +79,9 @@
 		</div>
 		<div style="display: flex;justify-content: space-evenly;padding: 20px;">
 			<input class="btn btn-success" type="submit" value="Guardar">
-			<a class="btn btn-primary" href="/pdf" download>Descargar</a>
+			<a class="btn btn-primary" href="/pdf" download>Descargar</a> 
 			<a class="btn btn-danger" href="/borrar">Borrar</a>
-			<form action="/logout" method="post">
-				<input class="btn btn-danger" type="submit" value="Cerrar sesión">
-			</form>
-		</div>
+			<a class="btn btn-primary" href="/logout">Cerrar Sesion</a>
 	</form>
 </body>
 

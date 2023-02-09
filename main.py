@@ -12,7 +12,7 @@ conn = sqlite3.connect("datos.db")
 conn.execute("""
 CREATE TABLE IF NOT EXISTS proyectos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    cedula INT,
+    cedula INT UNIQUE,
     proveedores TEXT,
     clientes TEXT,
     presupuesto TEXT,
@@ -29,13 +29,14 @@ def index():
     if 'cedula' in session:
         cedula  = session["cedula"]
         conn = sqlite3.connect("datos.db")
-        datos = conn.execute("SELECT * FROM proyectos WHERE cedula = " + cedula).fetchone()
+        datos = conn.execute("SELECT id, cedula, proveedores, clientes, presupuesto, publicidad, activos FROM proyectos WHERE cedula = " + cedula).fetchone()
+        print(datos)
         conn.close()
         return render_template("index.html", datos = datos)
     else: 
         return redirect("/login")
         
-    
+
 @app.route("/guardar", methods=["POST"])
 def guardar():
     cedula = session["cedula"]
@@ -84,12 +85,10 @@ def login():
     else:
         return render_template("login.html")
 
-
 @app.route("/logout")
 def logout():
- return redirect("/login")
-
-
+    session.clear()
+    return redirect("/login")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
